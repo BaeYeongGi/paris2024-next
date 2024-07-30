@@ -6,31 +6,32 @@ import { usePathname } from 'next/navigation';
 
 const Navigation = () => {
   const path = usePathname();
+
+  const navItems = [
+    {href: '/news', label: '주요뉴스'},
+    {href: '/rank', label: '랭킹뉴스'},
+    {href: '/behind', label: '비하인드'},
+    {href: '/recent', label: '최신뉴스'},
+  ]
+
   return (
-    <>
-      <ul className={`${styles.menu} ${styles.item4}`}>
+    <nav className={styles.nav}>
+      <ul className={styles.nav_menu}>
         <li>
-          {
-            path === "/news" ? <Link href="/news" className={styles.active}><h1>주요뉴스</h1></Link> : <Link href="/news">주요뉴스</Link>
-          }
-        </li>        
-        <li>
-          {
-            path === "/rank" ? <Link href="/rank" className={styles.active}><h1>랭킹뉴스</h1></Link> : <Link href="/rank">랭킹뉴스</Link>
-          }
+          <Link href="/" className={path === "/" ? styles.active : ''}>홈</Link>
+        </li> 
+        {navItems.map((item) => (
+        <li key={item.href}>
+          <Link href={item.href} className={path === item.href ? styles.active : ''}>
+            {path === item.href ? <h1>{item.label}</h1> : item.label}
+          </Link>
         </li>
-        <li>
-          {
-            path === "/behind" ? <Link href="/behind" className={styles.active}><h1>비하인드</h1></Link> : <Link href="/behind">비하인드</Link>
-          }
-        </li>
-        <li>
-        {
-            path === "/recent" ? <Link href="/recent" className={styles.active}><h1>최신뉴스</h1></Link> : <Link href="/recent">최신뉴스</Link>
-          }
-        </li>
+      ))}
+      <Link href="#" aria-label="poll">
+
+      </Link>
       </ul>
-    </>
+    </nav>
   );
 };
 
