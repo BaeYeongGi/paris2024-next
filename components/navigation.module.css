@@ -1,0 +1,18 @@
+.menu {
+  display:flex;
+  align-items: center;
+  width:100%;
+  border-bottom:1px solid #e6e7e9;
+  box-sizing:border-box;
+}
+
+.menu.item2 {
+
+}
+.menu.item4 {
+
+}
+
+.menu li a.active {
+  color:red;
+}
