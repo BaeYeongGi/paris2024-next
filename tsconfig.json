@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/dateschedule", "public/images/icon_poll.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/pages/dateschedule", "public/images/icon_poll.js", "api/index.tx"],
   "exclude": ["node_modules"]
 }

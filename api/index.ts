@@ -1,0 +1,1 @@
+export const API_URL = "https://baeyeonggi.github.io/paris2024/data/";

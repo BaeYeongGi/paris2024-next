@@ -5,6 +5,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'baeyeonggi.github.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos'
       }
     ]
   },

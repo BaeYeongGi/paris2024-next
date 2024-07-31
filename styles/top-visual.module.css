@@ -1,0 +1,41 @@
+.main_visual {
+  width:100%;
+  background:linear-gradient(90deg, #278d8f 10%, #efbcc7 100%);
+  padding:17px 20px 46px 20px;
+  box-sizing:border-box;
+  position:relative;
+}
+
+.list > li:not(:last-child) {
+  margin-bottom:14px;
+}
+.list > li > a {
+  font-size:16px;
+  font-weight:700;
+  letter-spacing: -1px;
+  color:#fff;
+  display:block;
+  width:100%;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.list > li > a > span {
+  color:#fbff41;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing: -0.5px;
+  margin-right:4px;
+}
+
+.visual_bg1 {
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+.visual_bg2 {
+  position:absolute;
+  bottom:0;
+  right:0;
+}

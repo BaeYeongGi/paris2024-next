@@ -1,8 +1,7 @@
-// import Navigation from "../components/navigation";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import Navigation from "@/components/navigation";
 import "@/styles/global.css";
+import { API_URL } from '@/api';
 
 export const metadata = {
   title: {
@@ -12,16 +11,24 @@ export const metadata = {
   description: '파리 올림픽에 대한 모든 정보를 한눈에 쉽게 네이트에서 확인하세요!',
 }
 
-export default function RootLayout({
+async function getHeaderData(){
+  const response = await fetch(`${API_URL}/header.json?3`);
+  return response.json();
+}
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const { data } = await getHeaderData();
   return (
     <html lang="ko">
       <body>
-      <Header/>
-      <Navigation/>
+      <Header
+        total={data.totalRank}
+        medal={data.medal}
+      />
         {children}
       <Footer/>
       </body>

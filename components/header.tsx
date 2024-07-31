@@ -1,19 +1,29 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-import styles from '@/components/header.module.css';
+import styles from '@/styles/header.module.css';
 import Image from 'next/image';
-import iconGoldMedal from '@/public/images/icon_gold_medal.png';
-import iconSilverMedal from '@/public/images/icon_silver_medal.png';
-import iconBronzeMedal from '@/public/images/icon_bronze_medal.png';
+import { usePathname } from 'next/navigation';
 import iconNateLogo from '@/public/images/icon_nate_logo.png';
 import iconHeaderSearch from '@/public/images/icon_header_search.png';
 import iconHeaderTitle from '@/public/images/icon_header_title.png';
 import iconHeaderShare from '@/public/images/icon_header_share.png';
-import { usePathname } from 'next/navigation';
 
-const Header = () => {
+interface medalType {
+  name: string,
+  class: string,
+  count: number,
+  img: string
+}
+interface headerProps {
+  total: number
+  medal: [medalType]
+}
+
+// const Header = ({total, gold, silver, bronze}:headerDataType) => {
+const Header = ({total, medal}: headerProps) => {
   const path = usePathname();
+
   return (
     <header className={styles.header}>
       <div className={styles.header_top_area}>
@@ -49,25 +59,22 @@ const Header = () => {
 
         </ul>
         <Link href="/medalist" className={styles.medal_wrap}>
-            <p className={styles.rank}><span>종합</span> 12위</p>
+            <p className={styles.rank}><span>종합</span> {total}위</p>
             <ul className={`${styles.medal_count}`}>
-              <li className={styles.gold}>
-                <Image src={iconGoldMedal} alt='금메달 획득 수' width="35" height="35"/>
-                <span>4</span>
-              </li>
-              <li className={styles.silver}>
-                <Image src={iconSilverMedal} alt='은메달 획득 수' width="35" height="35"/>
-                <span>6</span>
-              </li>
-              <li className={styles.bronze}>
-                <Image src={iconBronzeMedal} alt='동메달 획득 수' width="35" height="35"/>
-                <span>10</span>
-              </li>
+            {
+              medal.map((item: medalType) => {
+                return (
+                  <li key={item.name} className={styles[item.class]}>
+                    <Image src={item.img} alt={`${item.name} 획득 수`} width="35" height="35" />
+                    <span>{item.count}</span>
+                  </li>
+                )
+              })
+            }
             </ul>
           </Link>
       </div>
     </header>
-    //         <Image src='https://baeyeonggi.github.io/paris2024/images/icon-game-archery.png' width="50" height="50" alt="이미지" />
   );
 };
 
