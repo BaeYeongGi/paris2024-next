@@ -1,7 +1,9 @@
+import Title from '@/components/title';
+
 const GameSchedule = () => {
   return (
     <div>
-      경기일정 
+      <Title/> 
     </div>
   );
 };

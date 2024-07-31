@@ -20,7 +20,6 @@ interface headerProps {
   medal: [medalType]
 }
 
-// const Header = ({total, gold, silver, bronze}:headerDataType) => {
 const Header = ({total, medal}: headerProps) => {
   const path = usePathname();
 

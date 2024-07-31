@@ -1,0 +1,8 @@
+.component_wrap {
+  padding:20px;
+  box-sizing:border-box;
+  background-color:#fff;
+}
+.component_wrap.bg_sky {
+  background-color:#f3f6fa;
+}
