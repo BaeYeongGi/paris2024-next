@@ -71,9 +71,6 @@
   color:#fff;
   margin-right:10px;
 }
-.medal_wrap .rank span {
-
-}
 .medal_count {
   display:flex;
 }
@@ -85,6 +82,9 @@
   display:flex;
   align-items: center;
   justify-content: center;
+}
+.medal_count li:not(:last-child){
+  margin-right:4px;
 }
 .medal_count li img {
   position:absolute;

@@ -19,15 +19,15 @@ const Header = () => {
       <div className={styles.header_top_area}>
         <ul className={styles.header_nav}>
           <li>
-            <Link href="/" aria-label="네이트">
+            <Link href="https://m.nate.com" aria-label="네이트">
               <Image className={styles.logo} src={iconNateLogo} alt='네이트' width="22" height="22"/>
             </Link>
           </li>
-          <li><Link href="#" className={styles.sports}>스포츠</Link></li>
-          <li><Link href="#">뉴스</Link></li>
-          <li><Link href="#">연예</Link></li>
+          <li><Link href="https://m.news.nate.com/spo" className={styles.sports}>스포츠</Link></li>
+          <li><Link href="https://m.news.nate.com/">뉴스</Link></li>
+          <li><Link href="https://m.news.nate.com/ent">연예</Link></li>
         </ul>
-        <a href="#" className={styles.search}>
+        <a href="https://m.news.nate.com/search" className={styles.search}>
           <Image src={iconHeaderSearch} alt="검색 페이지로 이동" width="22" height="22"/>
         </a>
       </div>
@@ -48,7 +48,7 @@ const Header = () => {
           </li>
 
         </ul>
-        <Link href="#" className={styles.medal_wrap}>
+        <Link href="/medalist" className={styles.medal_wrap}>
             <p className={styles.rank}><span>종합</span> 12위</p>
             <ul className={`${styles.medal_count}`}>
               <li className={styles.gold}>
@@ -67,6 +67,7 @@ const Header = () => {
           </Link>
       </div>
     </header>
+    //         <Image src='https://baeyeonggi.github.io/paris2024/images/icon-game-archery.png' width="50" height="50" alt="이미지" />
   );
 };
 
