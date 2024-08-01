@@ -6,3 +6,13 @@
 .component_wrap.bg_sky {
   background-color:#f3f6fa;
 }
+
+.border_container {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .05);
+  position: relative;
+  border-radius: 8px 8px 8px 8px;
+  border: 1px solid #e6e5e5;
+}
+.border_container.schedule {
+
+}

@@ -14,8 +14,10 @@ const Home = () => {
     <>
       <TopVisual/>
       <Navigation/>
-      <section className={styles.component_wrap}>
-        <GameSchedule />
+      <section className={`${styles.component_wrap} ${styles.bg_sky}`}>
+        <div className={`${styles.border_container} ${styles.schedule}`}>
+          <GameSchedule />
+        </div>
       </section>
       <section className={styles.component_wrap}>
         <Title/>
