@@ -7,6 +7,15 @@
   background-color:#f3f6fa;
 }
 
+.component_division {
+  width: 100%;
+  display: block;
+  margin: 0;
+  height: 10px;
+  background-color: #ececee;
+  border: 0;
+}
+
 .border_container {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .05);
   position: relative;

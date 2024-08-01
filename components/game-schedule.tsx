@@ -11,7 +11,7 @@ async function getScheduleData(){
   return response.json();
 }
 
-interface scheduleDataProps {
+interface scheduleDataPropsType {
   id: number,
   time: string,
   state: string,
@@ -23,7 +23,6 @@ interface scheduleDataProps {
 
 export default async function GameSchedule(){
   const { data } = await getScheduleData();
-  console.log('data', data.dateList)
   return (
     <>
       <Title
@@ -32,7 +31,7 @@ export default async function GameSchedule(){
       /> 
       <ul className={styles.schedule_list}>
         {
-          data.dateList.map((item: scheduleDataProps) => {
+          data.dateList.map((item: scheduleDataPropsType) => {
             return (
               <li key={item.id}>
                 <Link href="/dateschedule">

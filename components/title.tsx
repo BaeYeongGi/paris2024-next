@@ -27,6 +27,8 @@ const Title = ({ text, type }: titleType ) => {
         type === "normal" && (
           <div className={`${styles.top} ${styles.remove_border}`}>
             <h2 className={styles.title}>{text}</h2>
+            <Link href="#" className={styles.more}>더보기</Link>
+
           </div>
         )
       }

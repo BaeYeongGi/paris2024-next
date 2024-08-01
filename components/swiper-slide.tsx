@@ -1,9 +1,64 @@
-const SwiperSlide = () => {
+'use client';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import Link from 'next/link';
+import ImgSquircle from '@/public/images/img_squircle';
+import styles from '@/styles/swiper-slide.module.css';
+import Image from 'next/image';
+import ImgBackgroundMal3_2 from '@/public/images/img_background_mal3_2.png'
+
+interface malmalmalType {
+  id: number,
+  name: string,
+  game: string,
+  contents: string, 
+  link: string,
+  profile: string
+}
+
+interface swiperPropsDataType {
+  type: string
+  malData: [malmalmalType]
+}
+export default function Slide({ malData, type }: swiperPropsDataType){
+  
+  // swiper bullet styling 
+  console.log('data1', malData)
   return (
-    <div>
-      스와이퍼 슬라이드 영역 많은곳에 쓰일 예정
-    </div>
+    <>
+      {
+        type === "malmalmal" && (
+          <Swiper
+            className={styles.slide_container}
+            modules={[Pagination]}
+            pagination={{
+              clickable: true,
+              bulletClass: styles.swiper_bullet
+            }}
+          >
+            {
+              malData.map((item) => {
+                return (
+                  <SwiperSlide className={styles.mal_slide} key={item.id}>
+                    <Image src={ImgBackgroundMal3_2} alt="프랑스 국기 이미지" width="110" height="40" className={styles.mal_flag} />
+                    <Link href="/view">
+                      <ImgSquircle profile={item.profile}/>  
+                      <dl className={styles.mal_text}>
+                        <dt>{item.name}<span></span>{item.game}</dt>
+                        <dd>{item.contents}</dd>
+                      </dl>
+                    </Link>
+                  </SwiperSlide>
+                )
+              })
+            }
+          </Swiper>
+        )
+      }
+    </>
   );
 };
 
-export default SwiperSlide;
