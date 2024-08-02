@@ -7,7 +7,7 @@ import IconGamePlaying from '@/public/images/icon_game_playing.png';
 import IconGameOver from '@/public/images/icon_game_over.png';
 
 async function getScheduleData(){
-  const response = await fetch(`${API_URL}/schedule.json`)
+  const response = await fetch(`${API_URL}/schedule.json?1`)
   return response.json();
 }
 

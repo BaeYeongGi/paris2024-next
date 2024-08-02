@@ -1,0 +1,45 @@
+.medal_rank_table_wrap {
+  border: 1px solid #e6e5e5;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px 15px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.05);
+}
+.medal_rank_table {
+  width: 100%;
+  margin-bottom: 0;
+}
+.medal_rank_table th {
+  border-bottom: 1px solid #ededed;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #000;
+  padding: 0 0 10px 0;
+}
+.medal_rank_table tr td {
+  vertical-align: middle;
+  text-align: center;
+  white-space: nowrap;
+  border-top: 1px solid #ededed;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+  height: 44px;
+  font-family: "Arial", Malgun Gothic, Dotum, Helvetica, sans-serif;
+}
+.medal_rank_table tr.active td {
+  border-bottom:1px solid #ededed;
+  background-color:#F3F6FA;
+}
+.medal_rank_table tr td:nth-of-type(2){
+  text-align:left;
+}
+.medal_rank_table tr td img {
+  width: 22px;
+  height: 16px;
+  margin-right: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  transform: translateY(2px);
+}

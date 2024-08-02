@@ -24,9 +24,7 @@ interface swiperPropsDataType {
   malData: [malmalmalType]
 }
 export default function Slide({ malData, type }: swiperPropsDataType){
-  
-  // swiper bullet styling 
-  console.log('data1', malData)
+
   return (
     <>
       {
@@ -36,7 +34,9 @@ export default function Slide({ malData, type }: swiperPropsDataType){
             modules={[Pagination]}
             pagination={{
               clickable: true,
-              bulletClass: styles.swiper_bullet
+              bulletClass: styles.bullet,
+              bulletActiveClass: styles.bullet_active,
+              horizontalClass: styles.bullet_wrap
             }}
           >
             {

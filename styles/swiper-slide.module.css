@@ -1,9 +1,20 @@
-.slide_container .swiper-pagination {
 
-  background-color:red;
+.bullet_wrap {
+  position: static;
+  max-width: 120px;
+  display: flex;
+  margin: 24px auto 0 auto;
 }
-.swiper_bullet{
-  background-color:red;
+.bullet {
+  border-radius: 0;
+  margin: 0;
+  height: 2px;
+  width: 60px;
+  opacity: 1;
+  background-color: #cecece;
+}
+.bullet_active {
+  background-color: #00b3b8;
 }
 .mal_slide {
   background: linear-gradient(90deg, #278d8f 10%, #efbcc7 100%);
@@ -44,7 +55,7 @@
   width: 1px;
   height: 13px;
   background-color: #fff;
-  margin: 0 4px 0 4px;
+  margin: 0 5px 0 5px;
   transform: translateY(1px);
 }
 .mal_text dd {

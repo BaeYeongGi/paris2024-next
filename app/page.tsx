@@ -30,8 +30,12 @@ const Home = () => {
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>
-        <Title/>
-        <Table />
+        <Title
+          text="메달 순위"
+          type="normal"
+        />
+        <Table
+        />
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>
