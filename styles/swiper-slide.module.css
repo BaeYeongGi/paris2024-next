@@ -1,4 +1,10 @@
 
+.slide_container {
+  overflow: hidden;
+  position: relative;
+  padding: 2px 0 0 0;
+  margin: -2px 0 0 0;
+}
 .bullet_wrap {
   position: static;
   max-width: 120px;
@@ -15,6 +21,22 @@
 }
 .bullet_active {
   background-color: #00b3b8;
+}
+.img_wrap {
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, .25);
+}
+.img_wrap::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .1);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .mal_slide {
   background: linear-gradient(90deg, #278d8f 10%, #efbcc7 100%);
@@ -78,3 +100,59 @@
   right:0;
 }
 
+.news_wrap.list > li > a {
+  display:flex;
+  align-items: center;
+  padding:10px 0;
+}
+.news_wrap.list > li > a .img_wrap {
+  width: 110px;
+  height: 66px;
+  margin-right: 14px;
+  flex: none;
+} 
+.news_wrap.list > li > a .img_wrap .icon {
+  position:absolute;
+  bottom:7px;
+  left:8px;
+}
+.news_wrap.list > li > a .text_wrap {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.5px;
+  color: #000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.news_wrap.list > li:not(:last-child){
+  border-bottom:1px solid #ededed;
+}
+
+.news_wrap .text_wrap .title {
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+.news_wrap .text_wrap .info .media {
+  display: block;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    color: #838383;
+    position: relative;
+}
+.news_wrap .text_wrap .text {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  font-weight: 400;
+  color: #838383;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+}

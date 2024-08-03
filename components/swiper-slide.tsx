@@ -43,9 +43,6 @@ interface swiperPropsDataType {
 
 export default function Slide({ malData, newsSlideData, type }: swiperPropsDataType){
   const flatNewsSlideData = newsSlideData?.flat();
-
-  console.log('newsLSide', flatNewsSlideData)
-
   return (
     <>
       {
@@ -84,29 +81,34 @@ export default function Slide({ malData, newsSlideData, type }: swiperPropsDataT
           <Swiper
             className={styles.slide_container}
             modules={[Pagination]}
+            autoHeight={true}
             pagination={{
-            clickable: true,
-            bulletClass: styles.bullet,
-            bulletActiveClass: styles.bullet_active,
-            horizontalClass: styles.bullet_wrap
-          }}>
+              clickable: true,
+              bulletClass: styles.bullet,
+              bulletActiveClass: styles.bullet_active,
+              horizontalClass: styles.bullet_wrap
+            }}>
             {
               flatNewsSlideData.map((news: newsSlideGroupType, idx) => {
                 return (
                   <SwiperSlide key={idx}>
-                    <Title text={news.title} type="normal"/>
-                    <ul className={`${styles.news_wrap} ${styles.list}`} key={''}>
+                    <Title
+                      text={news.title}
+                      type="normal"
+                      more={false}
+                    />
+                    <ul className={`${styles.news_wrap} ${styles.list}`}>
                     {
                       news.contents.map((item: newsSlideContentsType) => {
                         return (
-                          <li className={styles.img_item}>
+                          <li className={item.media !== '' ? styles.single : styles.multi} key={item.id}>
                             <Link href="#">
                               {
                                 item.thumbnail !== '' && (
                                   <div className={styles.img_wrap}>
                                     <Image src={item.thumbnail} alt='' width="110" height="66" />
                                     {item.player && (
-                                      <Image src={IconVideo} alt="영상" width="26" height="26" />
+                                      <Image src={IconVideo} alt="영상" width="26" height="26" className={styles.icon}/>
                                     )}
                                   </div>
                                 )
@@ -115,9 +117,16 @@ export default function Slide({ malData, newsSlideData, type }: swiperPropsDataT
                                 <dt className={styles.title}>
                                   {item.title}
                                 </dt>
-                                <dd className={styles.info}>
-                                  <span className={styles.media}>{item.media}</span>
-                                </dd>
+                                {
+                                  item.contents !== '' && item.media === '' ?
+                                  <dd className={styles.text}>
+                                    {item.contents}
+                                  </dd>
+                                  : 
+                                  <dd className={styles.info}>
+                                    <span className={styles.media}>{item.media}</span>
+                                  </dd>
+                                }
                               </div>
                             </Link>
                           </li>

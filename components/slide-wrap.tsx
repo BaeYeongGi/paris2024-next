@@ -13,7 +13,7 @@ async function getData(API_URL: string){
 export default async function SlideWrap({ type }:slideWrapType){
   const [malData, newsSlideData] = await Promise.all([
     getData(`${API_URL}/malmalmal.json`),
-    getData(`${API_URL}/news.json?2`)
+    getData(`${API_URL}/news.json?4`)
   ]);
 
   const slideProps = {

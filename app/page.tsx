@@ -25,6 +25,7 @@ const Home = () => {
         <Title
           text="파리 말말말"
           type="normal"
+          more={true}
         />
         <SlideWrap
           type="malmalmal"
@@ -35,6 +36,7 @@ const Home = () => {
         <Title
           text="메달 순위"
           type="normal"
+          more={true}
         />
         <Table/>
       </section>

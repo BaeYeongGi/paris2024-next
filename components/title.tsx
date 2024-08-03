@@ -4,9 +4,10 @@ import Link from 'next/link';
 interface titleType {
   text: string,
   type: string,
+  more: boolean
 }
 
-const Title = ({ text, type }: titleType ) => {
+const Title = ({ text, type, more }: titleType ) => {
 
   const date = new Date();
   const week = date.getDay();
@@ -19,7 +20,9 @@ const Title = ({ text, type }: titleType ) => {
         type === "schedule" && (
           <div className={`${styles.top} ${styles.box}`}>
             <h2 className={styles.title}>{`${date.getMonth() + 1}.${date.getDate()}.${dayOfWeekName} 경기 일정`}</h2>
-            <Link href="#" className={styles.more}>더보기</Link>
+            {more && (
+              <Link href="#" className={styles.more}>더보기</Link>
+            )}
           </div>
           )
       }
@@ -27,8 +30,9 @@ const Title = ({ text, type }: titleType ) => {
         type === "normal" && (
           <div className={`${styles.top} ${styles.remove_border}`}>
             <h2 className={styles.title}>{text}</h2>
-            <Link href="#" className={styles.more}>더보기</Link>
-
+            {more && (
+              <Link href="#" className={styles.more}>더보기</Link>
+            )}
           </div>
         )
       }
