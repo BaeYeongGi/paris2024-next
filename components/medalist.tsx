@@ -1,13 +1,75 @@
 import Title from '@/components/title';
+import { API_URL } from '@/api';
+import styles from '@/styles/medalist.module.css';
+import Link from 'next/link';
+import Image, { StaticImageData } from 'next/image';
+import IconGoldMedal from '@/public/images/icon_medal_gold.png';
+import IconSilverMedal from '@/public/images/icon_medal_Silver.png';
+import IconBronzeMedal from '@/public/images/icon_medal_Bronze.png';
+
+interface medalistDataType {
+  id: number,
+  time: string,
+  game: string,
+  contents: string,
+  medal: string,
+  thumbnail: string
+}
+
+async function getMedalistData(){
+  const response = await fetch(`${API_URL}/medal.json?5`);
+  return response.json();
+}
+
+export default async function Medalist(){
+
+  const { data } = await getMedalistData()
+
+  console.log('data', data.medalist)
+
+  const medalIcons = {
+    gold: IconGoldMedal,
+    silver: IconSilverMedal,
+    bronze: IconBronzeMedal
+  }
 
 
-const Medalist = () => {
+  // function getMedal(medal: string) {
+  //   return medalIcons[medal];
+  // }
+
+  function getMedal(medal: string): StaticImageData {
+    return (medalIcons as {[key: string]: StaticImageData})[medal];
+  }
+
   return (
     <div>
-      <Title/>
-      메달리스트 컴포넌트
+      <Title
+        text="메달리스트"
+        type="box"
+        more={true}
+      />
+      <ul className={styles.medalist_wrap}>
+        {
+          data.medalist.slice(0, 3).map((item: medalistDataType) => {
+            return (
+              <li key={item.id} className={styles[item.medal]}>
+                <Image src={getMedal(item.medal)} alt={item.medal} width="18" height="25" />
+                <Link href="#">
+                  <span className={styles.time}>{item.time}</span>
+                  <div className={styles.img_wrap}>
+                    <Image src={item.thumbnail} alt={item.game} width="100" height="60"/>
+                  </div>
+                  <div className={styles.text}>
+                    <dt>{item.game}</dt>
+                    <dd>{item.contents}</dd>
+                  </div>
+                </Link>
+              </li>
+            )
+          })
+        }
+      </ul>
     </div>
   );
 };
-
-export default Medalist;

@@ -32,7 +32,7 @@ export default async function GameSchedule(){
     <>
       <Title
         text={`${date.getMonth() + 1}.${date.getDate()}.${dayOfWeekName} 경기 일정`}
-        type="schedule"  
+        type="box"  
         more={true}
       /> 
       <ul className={styles.schedule_list}>

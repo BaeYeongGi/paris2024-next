@@ -43,7 +43,7 @@ const Home = () => {
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>
         <SlideWrap
-          type="news"
+          type="newsSlide"
         />
       </section>
       <hr className={styles.component_division}/>
@@ -59,7 +59,9 @@ const Home = () => {
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>
-        <Medalist />
+        <div className={styles.border_container}>
+          <Medalist />
+        </div>
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>

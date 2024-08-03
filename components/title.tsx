@@ -11,7 +11,7 @@ const Title = ({ text, type, more }: titleType ) => {
   return (
     <>
       {
-        type === "schedule" && (
+        type === "box" && (
           <div className={`${styles.top} ${styles.box}`}>
             <h2 className={styles.title}>{text}</h2>
             {more && (
