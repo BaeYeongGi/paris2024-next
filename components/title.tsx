@@ -10,7 +10,7 @@ const Title = ({ text, type }: titleType ) => {
 
   const date = new Date();
   const week = date.getDay();
-  const daysOfWeek = ['일', '월', '화', '수', '목', '금'];
+  const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
   const dayOfWeekName = daysOfWeek[week];
 
   return (

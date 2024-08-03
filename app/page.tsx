@@ -7,7 +7,7 @@ import Medalist from '@/components/medalist';
 import NewsList from '@/components/news-list';
 import PollList from '@/components/poll-list';
 import Navigation from '@/components/navigation';
-import Malmalmal from '@/components/malmalmal';
+import SlideWrap from '@/components/slide-wrap';
 import Title from '@/components/title';
 const Home = () => {
 
@@ -26,7 +26,9 @@ const Home = () => {
           text="파리 말말말"
           type="normal"
         />
-        <Malmalmal/>
+        <SlideWrap
+          type="malmalmal"
+        />
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>
@@ -34,12 +36,13 @@ const Home = () => {
           text="메달 순위"
           type="normal"
         />
-        <Table
-        />
+        <Table/>
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>
-        <Slide />
+        <SlideWrap
+          type="news"
+        />
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>
