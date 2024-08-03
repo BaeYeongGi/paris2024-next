@@ -10,6 +10,7 @@ import styles from '@/styles/swiper-slide.module.css';
 import Image from 'next/image';
 import ImgBackgroundMal3_2 from '@/public/images/img_background_mal3_2.png'
 import IconVideo from '@/public/images/icon_video.png';
+import IconPhoto from '@/public/images/icon_photo.png';
 import Title from '@/components/title'
 
 interface malmalmalType {
@@ -35,14 +36,27 @@ interface newsSlideContentsType {
   contents:string
 }
 
+interface photoDataType {
+  id: number,
+  img: string,
+  title: string
+}
+
 interface swiperPropsDataType {
   type: string
   malData?: malmalmalType[],
+  photoData: photoDataType[],
   newsSlideData: []
 }
 
-export default function Slide({ malData, newsSlideData, type }: swiperPropsDataType){
+export default function Slide({
+  type,
+  malData,
+  newsSlideData,
+  photoData
+}: swiperPropsDataType){
   const flatNewsSlideData = newsSlideData?.flat();
+
   return (
     <>
       {
@@ -77,7 +91,7 @@ export default function Slide({ malData, newsSlideData, type }: swiperPropsDataT
         )
       }
       {
-        type === "news" && (
+        type === "newsSlide" && (
           <Swiper
             className={styles.slide_container}
             modules={[Pagination]}
@@ -138,6 +152,40 @@ export default function Slide({ malData, newsSlideData, type }: swiperPropsDataT
                 )
               })              
             }
+          </Swiper>
+        )
+      }
+      {
+        type === "photo" && (
+          <Swiper
+          className={`${styles.slide_container} ${styles.photo_slide}`}
+          modules={[Pagination]}
+          slidesPerView={'auto'}
+          spaceBetween={12}
+          pagination={{
+            clickable: true,
+            bulletClass: styles.bullet,
+            bulletActiveClass: styles.bullet_active,
+            horizontalClass: styles.bullet_wrap
+          }}>
+            {
+              photoData.slice(0, 10).map((item) => {
+                return (
+                  <SwiperSlide key={item.id} style={{width:'auto'}}>
+                    <Link href="#">
+                      <div className={styles.img_wrap}>
+                        <Image src={item.img} alt={item.title} width="265" height="159"/>
+                        <div className={styles.text}>
+                          <Image src={IconPhoto} alt="사진" width="30" height="30" />
+                          <p>{item.title}</p>
+                        </div>
+                      </div>
+                      </Link>
+                  </SwiperSlide>
+                )
+              })
+            }
+
           </Swiper>
         )
       }

@@ -48,8 +48,14 @@ const Home = () => {
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>
-        <Title/>
-        <Slide />
+        <Title
+          text="파리 포토"
+          type="normal"
+          more={true}
+        />
+        <SlideWrap
+          type="photo"
+        />
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>

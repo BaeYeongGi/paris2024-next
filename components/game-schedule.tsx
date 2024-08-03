@@ -23,11 +23,17 @@ interface scheduleDataPropsType {
 
 export default async function GameSchedule(){
   const { data } = await getScheduleData();
+  const date = new Date();
+  const week = date.getDay();
+  const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+  const dayOfWeekName = daysOfWeek[week];
+
   return (
     <>
       <Title
-        text="타이틀 입니당"
+        text={`${date.getMonth() + 1}.${date.getDate()}.${dayOfWeekName} 경기 일정`}
         type="schedule"  
+        more={true}
       /> 
       <ul className={styles.schedule_list}>
         {
