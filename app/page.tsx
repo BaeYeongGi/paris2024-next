@@ -74,8 +74,14 @@ const Home = () => {
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>
-        <Title/>
-        <Slide />
+        <Title
+          text="파리 랭킹뉴스"
+          type="normal"
+          more={true}
+        />
+        <SlideWrap
+          type="ranking"
+        />
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>

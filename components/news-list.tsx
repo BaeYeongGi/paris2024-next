@@ -35,9 +35,9 @@ export default async function NewsList(){
   return (
     <ul className={`${styles.news_wrap}`}>
         {
-          setMainBehindData.map((item: behindDataType) => {
+          setMainBehindData.map((item: behindDataType, idx) => {
             return (
-              <li key={item.id}>
+              <li key={idx}>
                 <Link href="#">
                   <ImageWrap
                     type="single"  

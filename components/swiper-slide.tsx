@@ -12,6 +12,8 @@ import ImgBackgroundMal3_2 from '@/public/images/img_background_mal3_2.png'
 
 import Title from '@/components/title'
 import ImageWrap from '@/components/image-wrap';
+import IconRankBulletGold from '@/public/images/icon_rank_gold.png';
+import IconRankBulletSilver from '@/public/images/icon_rank_silver.png';
 
 interface malmalmalType {
   id: number,
@@ -42,20 +44,36 @@ interface photoDataType {
   title: string
 }
 
+interface rankingDataType {
+  id: number,
+  rank: number,
+  title: string
+}
+
 interface swiperPropsDataType {
   type: string
   malData?: malmalmalType[],
   photoData: photoDataType[],
   newsSlideData: []
+  rankingData: []
 }
 
 export default function Slide({
   type,
   malData,
   newsSlideData,
-  photoData
+  photoData,
+  rankingData
 }: swiperPropsDataType){
-  const flatNewsSlideData = newsSlideData?.flat();
+
+  const setRankingData = [];
+  const setNewsSlideData = newsSlideData?.flat();
+
+  for(let i = 0; i < rankingData?.length; i += 5){
+    const chunk = rankingData?.slice(i, i + 5);
+    setRankingData.push(chunk);
+  }
+
 
   return (
     <>
@@ -103,7 +121,7 @@ export default function Slide({
               horizontalClass: styles.bullet_wrap
             }}>
             {
-              flatNewsSlideData.map((news: newsSlideGroupType, idx) => {
+              setNewsSlideData.map((news: newsSlideGroupType, idx) => {
                 return (
                   <SwiperSlide key={idx}>
                     <Title
@@ -183,6 +201,51 @@ export default function Slide({
                         height={159}
                       />
                       </Link>
+                  </SwiperSlide>
+                )
+              })
+            }
+          </Swiper>
+        )
+      }
+      {
+        type === "ranking" && (
+          <Swiper
+              className={styles.slide_container}
+              modules={[Pagination]}
+              pagination={{
+                clickable: true,
+                bulletClass: styles.bullet,
+                bulletActiveClass: styles.bullet_active,
+                horizontalClass: styles.bullet_wrap
+              }}
+          >
+            {
+              setRankingData?.map((rank, idx) => {
+                return (
+                  <SwiperSlide key={idx}>
+                    <ul className={styles.ranking}>
+                      {
+                        rank.map((item: rankingDataType) => {
+                          return (
+                            <li key={item.id}>
+                              <Link href="#">
+                                <div className={styles.num}>
+                                  <span>{item.rank}</span>
+                                  <Image
+                                    src={IconRankBulletGold}
+                                    width={24}
+                                    height={24}
+                                    alt=""  
+                                  />
+                                </div>
+                                <h2>{item.title}</h2>
+                              </Link>
+                            </li>
+                          )
+                        })
+                      }
+                    </ul>
                   </SwiperSlide>
                 )
               })
