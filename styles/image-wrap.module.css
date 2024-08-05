@@ -74,15 +74,15 @@
 }
 .photo_text p {
   font-size: 15px;
-    letter-spacing: -1px;
-    color: #fff;
-    font-weight: 700;
-    line-height: 18px;
-    text-shadow: 0 0 4px rgba(0, 0, 0, .25);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    word-wrap: break-word;
-    -webkit-line-clamp: 2;
+  letter-spacing: -1px;
+  color: #fff;
+  font-weight: 700;
+  line-height: 18px;
+  text-shadow: 0 0 4px rgba(0, 0, 0, .25);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
 }

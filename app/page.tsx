@@ -65,7 +65,11 @@ const Home = () => {
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>
-        <Title/>
+        <Title
+          text="비하인드 파리"
+          type="normal"
+          more={true}
+        />
         <NewsList />
       </section>
       <hr className={styles.component_division}/>
