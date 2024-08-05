@@ -9,9 +9,9 @@ import ImgSquircle from '@/public/images/img_squircle';
 import styles from '@/styles/swiper-slide.module.css';
 import Image from 'next/image';
 import ImgBackgroundMal3_2 from '@/public/images/img_background_mal3_2.png'
-import IconVideo from '@/public/images/icon_video.png';
-import IconPhoto from '@/public/images/icon_photo.png';
+
 import Title from '@/components/title'
+import ImageWrap from '@/components/image-wrap';
 
 interface malmalmalType {
   id: number,
@@ -119,12 +119,14 @@ export default function Slide({
                             <Link href="#">
                               {
                                 item.thumbnail !== '' && (
-                                  <div className={styles.img_wrap}>
-                                    <Image src={item.thumbnail} alt='' width="110" height="66" />
-                                    {item.player && (
-                                      <Image src={IconVideo} alt="영상" width="26" height="26" className={styles.icon}/>
-                                    )}
-                                  </div>
+                                  <ImageWrap
+                                    type="single"  
+                                    img={item.thumbnail}
+                                    title=""
+                                    width={110}
+                                    height={66}
+                                    media={item.player}
+                                  />
                                 )
                               }
                               <div className={styles.text_wrap}>
@@ -173,13 +175,13 @@ export default function Slide({
                 return (
                   <SwiperSlide key={item.id} style={{width:'auto'}}>
                     <Link href="#">
-                      <div className={styles.img_wrap}>
-                        <Image src={item.img} alt={item.title} width="265" height="159"/>
-                        <div className={styles.text}>
-                          <Image src={IconPhoto} alt="사진" width="30" height="30" />
-                          <p>{item.title}</p>
-                        </div>
-                      </div>
+                      <ImageWrap
+                        type="photo"
+                        img={item.img}
+                        title={item.title}
+                        width={265}
+                        height={159}
+                      />
                       </Link>
                   </SwiperSlide>
                 )

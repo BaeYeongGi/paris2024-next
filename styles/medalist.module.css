@@ -1,3 +1,72 @@
 .medalist_wrap {
-  
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.medalist_wrap::before {
+  content: "";
+  display: block;
+  height: 100%;
+  border: 1px dashed #e6e6e5;
+  position: absolute;
+  left: 33px;
+  top: 20px;
+}
+
+.medalist_wrap li {
+  padding:0;
+  position:relative;
+}
+
+.medalist_wrap li:not(:last-child) {
+  border-bottom:1px solid #ededed;
+}
+
+.medalist_wrap li > a {
+  display:flex;
+  position: relative;
+  padding:45px 0 14px 0;
+}
+
+.medalist_wrap li .time {
+  position: absolute;
+  top: 17px;
+  left: 32px;
+  display: inline-block;
+  font-family: "Arial", Malgun Gothic, Dotum, Helvetica, sans-serif;
+  font-weight: 700;
+  color: #000;
+  font-size: 14px;
+}
+
+.medalist_wrap li .medal {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  z-index: 1;
+}
+
+.medalist_wrap li .text dt {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  letter-spacing: -1px;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 6px 0;
+}
+.medalist_wrap li .text dd {
+  font-size: 16px;
+  letter-spacing: -1px;
+  line-height: 23px;
+  font-weight: 400;
+  color: #000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  -webkit-line-clamp: 3;
+
 }

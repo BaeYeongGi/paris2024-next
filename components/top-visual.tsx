@@ -31,6 +31,8 @@ export default async function TopVisual(){
           img={data.main_visual.top.img}
           title={data.main_visual.top.title}
           contents={data.main_visual.top.contents}
+          width={335}
+          height={201}
         />
       </Link>
       <ul className={styles.list}>

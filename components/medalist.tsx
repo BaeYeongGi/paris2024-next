@@ -6,6 +6,7 @@ import Image, { StaticImageData } from 'next/image';
 import IconGoldMedal from '@/public/images/icon_medal_gold.png';
 import IconSilverMedal from '@/public/images/icon_medal_Silver.png';
 import IconBronzeMedal from '@/public/images/icon_medal_Bronze.png';
+import ImageWrap from '@/components/image-wrap';
 
 interface medalistDataType {
   id: number,
@@ -25,14 +26,11 @@ export default async function Medalist(){
 
   const { data } = await getMedalistData()
 
-  console.log('data', data.medalist)
-
   const medalIcons = {
     gold: IconGoldMedal,
     silver: IconSilverMedal,
     bronze: IconBronzeMedal
   }
-
 
   // function getMedal(medal: string) {
   //   return medalIcons[medal];
@@ -54,12 +52,16 @@ export default async function Medalist(){
           data.medalist.slice(0, 3).map((item: medalistDataType) => {
             return (
               <li key={item.id} className={styles[item.medal]}>
-                <Image src={getMedal(item.medal)} alt={item.medal} width="18" height="25" />
+                <Image src={getMedal(item.medal)} alt={item.medal} width="18" height="25" className={styles.medal} />
                 <Link href="#">
                   <span className={styles.time}>{item.time}</span>
-                  <div className={styles.img_wrap}>
-                    <Image src={item.thumbnail} alt={item.game} width="100" height="60"/>
-                  </div>
+                  <ImageWrap
+                    type="single"
+                    img={item.thumbnail}
+                    title={item.game}
+                    width={100}
+                    height={60}
+                  />
                   <div className={styles.text}>
                     <dt>{item.game}</dt>
                     <dd>{item.contents}</dd>
