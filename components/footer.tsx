@@ -11,8 +11,8 @@ const Footer = () => {
           <a href="https://m.nate.com/sitemap.html">전체서비스</a>
         </div> 
         <ul className={styles.sitemap}>
-          <li><a href="https://news.nate.com/enews/editguide">기사배열기본방침(책임:김경옥)</a></li>
-          <li><span>청소년보호책임:조유형</span></li>
+          <li><a href="https://news.nate.com/enews/editguide">기사배열기본방침(책임:○○○)</a></li>
+          <li><span>청소년보호책임:○○○</span></li>
           <li><a href="https://m.news.nate.com/newssitemap">뉴스 전체서비스</a></li>
         </ul>
         <div className={styles.copyright}>

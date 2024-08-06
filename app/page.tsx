@@ -85,7 +85,11 @@ const Home = () => {
       </section>
       <hr className={styles.component_division}/>
       <section className={styles.component_wrap}>
-        <Title/>
+        <Title
+          text="poll"
+          type="normal"
+          more={true}
+          />
         <PollList />
       </section>
     </>

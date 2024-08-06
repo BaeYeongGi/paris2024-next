@@ -1,0 +1,79 @@
+.poll_wrap {
+  overflow-x: auto;
+  display: flex;
+  margin: 30px -20px 0 -20px;
+  padding: 0 20px;
+}
+.poll_wrap::-webkit-scrollbar {
+  display:none;
+}
+.poll_wrap > li:not(:last-child){
+  margin-right:10px;
+}
+.poll_wrap > li > a {
+  display: block;
+  width: 210px;
+  height: 150px;
+  border-radius: 8px;
+  background-size: 130px 150px;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.poll_wrap > li > a .state {
+  position:absolute;
+  top:0;
+  left:0;
+}
+.poll_wrap > li > a.type1, .poll_wrap > li > a.type9 {
+  background-color:#4AC9C9;
+}
+.poll_wrap > li > a.type2 {
+  background-color:#00DCA4;
+}
+.poll_wrap > li > a.type3 {
+  background-color:#84DC14;
+}
+.poll_wrap > li > a.type4 {
+  background-color:#DCC814;
+}
+.poll_wrap > li > a.type5 {
+  background-color:#FF6A73;
+}
+.poll_wrap > li > a.type6 {
+  background-color:#E16AFF;
+}
+.poll_wrap > li > a.type7 {
+  background-color:#923CFF;
+}
+.poll_wrap > li > a.type8 {
+  background-color:#3793FF;
+}
+.poll_wrap .text {
+  padding: 32px 0 0 16px;
+  width: 120px;
+}
+.poll_wrap .text dt {
+  font-family: "S-Core-Dream-5", Malgun Gothic, Dotum, Helvetica, sans-serif;
+  line-height: 22px;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: -1.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  -webkit-line-clamp: 3;
+  margin: 0 0 8px 0;
+}
+.poll_wrap .text dd {
+  font-family: "Arial", Malgun Gothic, Dotum, Helvetica, sans-serif;
+  color: #fff;
+  font-size: 13px;
+}
+.poll_wrap .poll_bg {
+  position:absolute;
+  bottom:0;
+  right:0;
+}
