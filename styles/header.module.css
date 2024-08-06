@@ -9,6 +9,11 @@
 .header.poll {
   background:linear-gradient(90deg, #304a97 10%, #ecbbc6 100%);
 }
+.header_bg {
+  position:absolute;
+  top:0;
+  right:0;
+}
 .header_top_area {
   width:100%;
   display:flex;

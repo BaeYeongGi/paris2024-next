@@ -25,7 +25,7 @@ export default async function TopVisual(){
     <section className={styles.main_visual}>
       <Image src={ImageMainVisualItem1} alt="파리 국기1" width="527" height="240" className={styles.visual_bg1} />
       <Image src={ImageMainVisualItem2} alt="파리 국기2" width="120" height="60" className={styles.visual_bg2} />      
-      <Link href="/view" className={styles.img_container}>
+      <Link href="/news/view" className={styles.img_container}>
         <ImageWrap
           type="text_in_image"
           img={data.main_visual.top.img}
@@ -40,7 +40,7 @@ export default async function TopVisual(){
           data.main_visual.list.map((item: mainVisualDataType) => {
             return (
               <li key={item.id}>
-                <Link href="/view"><span>{item.game}</span>{item.title}</Link>
+                <Link href="/news/view"><span>{item.game}</span>{item.title}</Link>
               </li>
             )
           })

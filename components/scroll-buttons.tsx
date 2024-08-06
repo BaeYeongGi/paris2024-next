@@ -24,7 +24,7 @@ const ScrollButtons = () => {
 
   return (
     <div className={height ? `${styles.scroll_btns_wrap} ${styles.fixed}` : styles.scroll_btns_wrap}>
-      <Link href="#" className={styles.home}>
+      <Link href="/" className={styles.home}>
         <IconScrollHome />
       </Link>
       <Link href="#" className={styles.top}>

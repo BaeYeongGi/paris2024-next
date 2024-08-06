@@ -94,7 +94,7 @@ export default function Slide({
                 return (
                   <SwiperSlide className={styles.mal_slide} key={item.id}>
                     <Image src={ImgBackgroundMal3_2} alt="프랑스 국기 이미지" width="110" height="40" className={styles.mal_flag} />
-                    <Link href="/view">
+                    <Link href="/news/view">
                       <ImgSquircle profile={item.profile}/>  
                       <dl className={styles.mal_text}>
                         <dt>{item.name}<span></span>{item.game}</dt>

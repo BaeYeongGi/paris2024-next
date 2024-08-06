@@ -1,12 +1,17 @@
 'use client';
 import Link from 'next/link';
 import styles from '@/styles/header.module.css';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { usePathname } from 'next/navigation';
 import iconNateLogo from '@/public/images/icon_nate_logo.png';
 import iconHeaderSearch from '@/public/images/icon_header_search.png';
 import iconHeaderTitle from '@/public/images/icon_header_title.png';
 import iconHeaderShare from '@/public/images/icon_header_share.png';
+import ImgBackgroundHeader1 from '@/public/images/img_background_header_type1.png';
+import ImgBackgroundHeader2 from '@/public/images/img_background_header_type2.png';
+import ImgBackgroundHeader3 from '@/public/images/img_background_header_type3.png';
+import ImgBackgroundHeader4 from '@/public/images/img_background_header_type4.png';
+import ImgBackgroundHeader5 from '@/public/images/img_background_header_type5.png';
 
 interface medalType {
   name: string,
@@ -22,8 +27,23 @@ interface headerProps {
 const Header = ({total, medal}: headerProps) => {
   const path = usePathname();
 
+  const headerBackgrounds = {
+    '': ImgBackgroundHeader1,
+    home: ImgBackgroundHeader1,
+    news: ImgBackgroundHeader1,
+    photo: ImgBackgroundHeader2,
+    schedule: ImgBackgroundHeader3,
+    medal: ImgBackgroundHeader4,
+    poll: ImgBackgroundHeader5
+  }
+
+  function getHeaderBackground(pathName: string){
+    return (headerBackgrounds as {[key:string]: StaticImageData}) [pathName];
+  }
+
   return (
     <header className={styles.header}>
+      <Image className={styles.header_bg} src={getHeaderBackground(path.split('/')[1])} alt="" width="161" height="112" />
       <div className={styles.header_top_area}>
         <ul className={styles.header_nav}>
           <li>
@@ -42,7 +62,7 @@ const Header = ({total, medal}: headerProps) => {
       <div className={styles.header_bottom_area}>
         <ul className={styles.title_wrap}>
           <li>
-            <Link href="#" className={styles.title}>
+            <Link href="/" className={styles.title}>
               { path === "/" ?
               <h1><Image src={iconHeaderTitle} alt='봉쥬르 paris' width="102" height="52" /></h1>
               :
