@@ -1,16 +1,24 @@
 "use client";
-
+import { useEffect, useState, useRef } from 'react';
 import styles from '@/styles/navigation.module.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import IconPoll from '@/public/images/icon_poll';
+import useStore from '@/store/store';
 
 const Navigation = () => {
-
+  const navigationRef = useRef<HTMLElement>(null);
   const path = usePathname();
+  const { setNavigationOffsetTop } = useStore();
+
+  useEffect(() => {
+    if(navigationRef.current){
+      setNavigationOffsetTop(navigationRef.current.offsetTop);
+    }
+  },[])
 
   return (
-    <nav className={styles.nav}>
+    <nav className={styles.nav} ref={navigationRef}>
       <ul className={styles.nav_menu}>
         <li>
           <Link href="/" className={path === "/" ? styles.active : ''}>홈</Link>

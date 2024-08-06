@@ -1,7 +1,6 @@
 import styles from '@/styles/main.module.css';
 import TopVisual from '@/components/top-visual';
 import GameSchedule from '@/components/game-schedule';
-import Slide from '@/components/swiper-slide';
 import Table from '@/components/table';
 import Medalist from '@/components/medalist';
 import NewsList from '@/components/news-list';
