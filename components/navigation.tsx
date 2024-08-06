@@ -4,21 +4,34 @@ import styles from '@/styles/navigation.module.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import IconPoll from '@/public/images/icon_poll';
-import useStore from '@/store/store';
+// import useStore from '@/store/store';
 
 const Navigation = () => {
   const navigationRef = useRef<HTMLElement>(null);
   const path = usePathname();
-  const { setNavigationOffsetTop } = useStore();
+  const [isActive, setIsActive] = useState(false);
+  const [height, setHeight] = useState(0);
+  // const { setNavigationOffsetTop } = useStore();
 
   useEffect(() => {
     if(navigationRef.current){
-      setNavigationOffsetTop(navigationRef.current.offsetTop);
+      setHeight(navigationRef.current.offsetTop);
     }
-  },[])
+    const fixedHeader = () => {
+      if(window.scrollY >= height){
+        setIsActive(true);
+      } else {
+        setIsActive(false);
+      }
+    }
+    window.addEventListener('scroll', fixedHeader);
+    return () => {
+      window.removeEventListener('scroll', fixedHeader);
+    }
+  },[height])
 
   return (
-    <nav className={styles.nav} ref={navigationRef}>
+    <nav className={isActive ? `${styles.nav} ${styles.fixed}` : styles.nav} ref={navigationRef}>
       <ul className={styles.nav_menu}>
         <li>
           <Link href="/" className={path === "/" ? styles.active : ''}>홈</Link>

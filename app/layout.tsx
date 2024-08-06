@@ -2,6 +2,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import "@/styles/global.css";
 import { API_URL } from '@/api';
+import ScrollButtons from "@/components/scroll-buttons";
 
 export const metadata = {
   title: {
@@ -30,6 +31,7 @@ export default async function RootLayout({
         medal={data.medal}
       />
         {children}
+      <ScrollButtons/>
       <Footer/>
       </body>
     </html>

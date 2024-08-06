@@ -1,6 +1,5 @@
 'use client';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
 import styles from '@/styles/header.module.css';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -8,7 +7,6 @@ import iconNateLogo from '@/public/images/icon_nate_logo.png';
 import iconHeaderSearch from '@/public/images/icon_header_search.png';
 import iconHeaderTitle from '@/public/images/icon_header_title.png';
 import iconHeaderShare from '@/public/images/icon_header_share.png';
-import useStore from '@/store/store';
 
 interface medalType {
   name: string,
@@ -23,23 +21,6 @@ interface headerProps {
 
 const Header = ({total, medal}: headerProps) => {
   const path = usePathname();
-  const [isActive, setIsActive] = useState(false);
-  const { navigationOffsetTop } = useStore();
-
-  useEffect(() => {
-    const fixedHeader = () => {
-      
-    }
-
-    window.addEventListener('scroll', fixedHeader);
-    return () => {
-      window.removeEventListener('scroll', fixedHeader);
-    }
-
-  },[])
-
-  console.log('navigationOffsetTop', navigationOffsetTop)
-
 
   return (
     <header className={styles.header}>
