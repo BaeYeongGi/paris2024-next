@@ -29,7 +29,6 @@ const Header = ({total, medal}: headerProps) => {
 
   const headerBackgrounds = {
     '': ImgBackgroundHeader1,
-    home: ImgBackgroundHeader1,
     news: ImgBackgroundHeader1,
     photo: ImgBackgroundHeader2,
     schedule: ImgBackgroundHeader3,
@@ -74,7 +73,6 @@ const Header = ({total, medal}: headerProps) => {
               <Image src={iconHeaderShare} alt='공유하기' width="30" height="24"/>
             </button>
           </li>
-
         </ul>
         <Link href="/medalist" className={styles.medal_wrap}>
             <p className={styles.rank}><span>종합</span> {total}위</p>

@@ -4,8 +4,8 @@ import styles from '@/styles/medalist.module.css';
 import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 import IconGoldMedal from '@/public/images/icon_medal_gold.png';
-import IconSilverMedal from '@/public/images/icon_medal_Silver.png';
-import IconBronzeMedal from '@/public/images/icon_medal_Bronze.png';
+import IconSilverMedal from '@/public/images/icon_medal_silver.png';
+import IconBronzeMedal from '@/public/images/icon_medal_bronze.png';
 import ImageWrap from '@/components/image-wrap';
 
 interface medalistDataType {
