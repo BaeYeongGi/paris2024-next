@@ -1,5 +1,4 @@
 import Menu from '@/components/menu';
-import React from 'react';
 
 const NewsLayout = () => {
   const items = [
