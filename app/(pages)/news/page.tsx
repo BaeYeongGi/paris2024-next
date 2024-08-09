@@ -1,11 +1,14 @@
 import SlideWrap from "@/components/slide-wrap"
 import PageTabsWrap from "@/components/page-tab-wrap";
+import NewsList from "@/components/news-list";
+import { API_URL } from "@/api";
 
 export const metadata = {
   title: "주요뉴스"
 }
 
-const News = () => {
+export default async function News(){
+
   return (
     <>
     <PageTabsWrap>
@@ -13,10 +16,10 @@ const News = () => {
         type="datePage"
       />
     </PageTabsWrap>
-
+    <NewsList
+      type="news"
+    />
     </>
 
   );
 };
-
-export default News;
