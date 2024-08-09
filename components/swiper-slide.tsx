@@ -1,6 +1,5 @@
 'use client';
 
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperClass } from 'swiper/types';
 import { Pagination } from 'swiper/modules';
@@ -16,7 +15,7 @@ import Title from '@/components/title'
 import ImageWrap from '@/components/image-wrap';
 import IconRankBulletGold from '@/public/images/icon_rank_gold.png';
 import IconRankBulletSilver from '@/public/images/icon_rank_silver.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface malmalmalType {
   id: number,
@@ -99,6 +98,14 @@ export default function Slide({
   const nextSwipe = () => {
     swiper?.slideNext();
   }
+
+  useEffect(() => {
+    swiper?.el.querySelectorAll('.swiper-slide').forEach(function(item, idx){
+      if(item.classList.contains(styles.today)){
+        swiper?.slideTo(idx);
+      }
+    })
+  },[swiper])
 
   return (
     <>
@@ -297,7 +304,7 @@ export default function Slide({
             {
               setNewsDatePageData?.map((item: newsDatePageDataType) => {
                 return (
-                <SwiperSlide key={item.id} className={styles.page}>
+                <SwiperSlide key={item.id} className={item.dayOfTheWeek === "오늘" ? `${styles.page} ${styles.today}`  : styles.page}>
                   <Link href="#">
                     <span className={styles.key}>{item.dayOfTheWeek}</span>
                     <span className={styles.value}>{item.date}</span>

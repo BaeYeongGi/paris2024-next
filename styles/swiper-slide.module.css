@@ -207,8 +207,13 @@
   bottom: 8px;
   right: 8px;
 }
-
-
+.slide_news_page .page.today > a {
+  background-color:#278d8f;
+}
+.slide_news_page .page.today > a .key,
+.slide_news_page .page.today > a .value {
+  color:#fff;
+}
 
 .news_page_prev, .news_page_next {
   display: block;
