@@ -1,8 +1,6 @@
 import Navigation from "@/components/navigation"
 
-export default function subPageLayout({
-  children,
-}: {
+export default function subPageLayout({  children, }: {
   children: React.ReactNode
 }) {
   return (

@@ -1,12 +1,21 @@
+import SlideWrap from "@/components/slide-wrap"
+import PageTabsWrap from "@/components/page-tab-wrap";
+
 export const metadata = {
-  title: "뉴스"
+  title: "주요뉴스"
 }
 
 const News = () => {
   return (
-    <div>
-      뉴스페이지입니둥
-    </div>
+    <>
+    <PageTabsWrap>
+      <SlideWrap
+        type="datePage"
+      />
+    </PageTabsWrap>
+
+    </>
+
   );
 };
 

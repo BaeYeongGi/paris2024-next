@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from '@/styles/top-visual.module.css';
 import Link from 'next/link';
 import ImageWrap from '@/components/image-wrap';
@@ -14,6 +13,7 @@ interface mainVisualDataType {
 }
 
 async function getNewsData(){
+  await new Promise((resolve) => setTimeout(resolve, 5000))
   const response = await fetch(`${API_URL}/news.json`);
   return response.json();
 }
@@ -35,6 +35,7 @@ export default async function TopVisual(){
           height={201}
         />
       </Link>
+
       <ul className={styles.list}>
         {
           data.main_visual.list.map((item: mainVisualDataType) => {

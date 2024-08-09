@@ -1,6 +1,6 @@
 import Menu from '@/components/menu';
 
-const NewsLayout = () => {
+const NewsLayout = ({ children }: {children:React.ReactNode}) => {
   const items = [
     {
       id: 1,
@@ -24,9 +24,12 @@ const NewsLayout = () => {
     },
   ]
   return (
-    <Menu
-      items={items}
-    />
+    <>
+      <Menu
+        items={items}
+      />
+      {children}
+    </>
   );
 };
 

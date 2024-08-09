@@ -1,0 +1,9 @@
+.page_tab_wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 94px;
+  background-color: #f3f6fa;
+  justify-content: center;
+  position: relative;
+}

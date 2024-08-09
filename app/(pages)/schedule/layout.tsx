@@ -1,6 +1,6 @@
 import Menu from '@/components/menu';
 
-const ScheduleLayout = () => {
+const ScheduleLayout = ({ children }: {children: React.ReactNode}) => {
   const items = [
     {
       id: 1,
@@ -14,9 +14,11 @@ const ScheduleLayout = () => {
     },
   ]  
   return (
-    <Menu
-      items={items}
-    />
+    <>
+      <Menu items={items}/>
+      {children}
+    </>
+
   );
 };
 

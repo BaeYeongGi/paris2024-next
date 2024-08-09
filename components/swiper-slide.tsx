@@ -1,6 +1,8 @@
 'use client';
 
+
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper as SwiperClass } from 'swiper/types';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -14,6 +16,7 @@ import Title from '@/components/title'
 import ImageWrap from '@/components/image-wrap';
 import IconRankBulletGold from '@/public/images/icon_rank_gold.png';
 import IconRankBulletSilver from '@/public/images/icon_rank_silver.png';
+import { useState } from 'react';
 
 interface malmalmalType {
   id: number,
@@ -50,12 +53,23 @@ interface rankingDataType {
   title: string
 }
 
+interface newsDatePageDataGroupType {
+  date: Array<newsDatePageDataType>
+}
+
+interface newsDatePageDataType {
+  id: number,
+  dayOfTheWeek: string,
+  date: string
+}
+
 interface swiperPropsDataType {
   type: string
   malData?: malmalmalType[],
   photoData: photoDataType[],
-  newsSlideData: []
-  rankingData: []
+  newsSlideData: [],
+  rankingData: [],
+  newsDatePageData: newsDatePageDataGroupType
 }
 
 export default function Slide({
@@ -63,17 +77,28 @@ export default function Slide({
   malData,
   newsSlideData,
   photoData,
-  rankingData
+  rankingData,
+  newsDatePageData
 }: swiperPropsDataType){
 
   const setRankingData = [];
   const setNewsSlideData = newsSlideData?.flat();
+  const setNewsDatePageData = newsDatePageData?.date;
+  const [swiper, setSwiper] = useState<SwiperClass>();
+  const [isBegin, setIsBegin] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
 
   for(let i = 0; i < rankingData?.length; i += 5){
     const chunk = rankingData?.slice(i, i + 5);
     setRankingData.push(chunk);
   }
 
+  const prevSwipe = () => {
+    swiper?.slidePrev();
+  }
+  const nextSwipe = () => {
+    swiper?.slideNext();
+  }
 
   return (
     <>
@@ -252,6 +277,39 @@ export default function Slide({
             }
 
           </Swiper>
+        )
+      }
+      {
+        type === "datePage" && (
+          <>
+          <Swiper
+            className={`${styles.slide_container} ${styles.slide_news_page}`}
+            slidesPerView={4}
+            slidesPerGroup={4}
+            onSwiper={(e) => {
+              setSwiper(e);
+            }}     
+            onSlideChange={(e) => {
+              setIsBegin(e.isBeginning);
+              setIsEnd(e.isEnd);
+            }}
+          >
+            {
+              setNewsDatePageData?.map((item: newsDatePageDataType) => {
+                return (
+                <SwiperSlide key={item.id} className={styles.page}>
+                  <Link href="#">
+                    <span className={styles.key}>{item.dayOfTheWeek}</span>
+                    <span className={styles.value}>{item.date}</span>
+                  </Link>
+                </SwiperSlide>
+                )
+              })
+            }
+          </Swiper>
+          <div className={isBegin ? `${styles.news_page_prev} ${styles.disabled}` : styles.news_page_prev } onClick={prevSwipe}></div>
+          <div className={isEnd ? `${styles.news_page_next} ${styles.disabled}` : styles.news_page_next} onClick={nextSwipe}></div>
+          </>
         )
       }
     </>
