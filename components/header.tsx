@@ -40,6 +40,18 @@ const Header = ({total, medal}: headerProps) => {
     return (headerBackgrounds as {[key:string]: StaticImageData}) [pathName];
   }
 
+  const shareHandler = async () => {
+    try {
+      await navigator.share({
+        title: document.title,
+        text: '네이트 2024 파리올림픽',
+        url: path
+      })
+    } catch (err) {
+      console.log('share navigator error',err)
+    }
+  }
+
   return (
     <header className={styles.header}>
       <Image className={styles.header_bg} src={getHeaderBackground(path.split('/')[1])} alt="" width="161" height="112" />
@@ -69,7 +81,7 @@ const Header = ({total, medal}: headerProps) => {
             </Link>
           </li>
           <li>
-            <button className={`${styles.share} ${styles.gnb_share}`}>
+            <button className={`${styles.share} ${styles.gnb_share}`} onClick={shareHandler}>
               <Image src={iconHeaderShare} alt='공유하기' width="30" height="24"/>
             </button>
           </li>

@@ -12,7 +12,7 @@ export default async function News(){
     <>
       <PageTabsWrap type="datePage"/>   
       <NewsList
-        type="news"
+        type="newsPage"
       />
     </>
 

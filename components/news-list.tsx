@@ -79,7 +79,7 @@ export default async function NewsList({ type }: newsListPropsType){
       )
     }
     {
-      type === "news" && (
+      type === "newsPage" && (
         <>
           {
             setNewsPageData.map((news: newsGroupDataType, idx:number) => {
@@ -145,7 +145,7 @@ export default async function NewsList({ type }: newsListPropsType){
       )
     }
     {
-      type === "ranking" && (
+      type === "rankPage" && (
         <ul className={`${styles.news_wrap} ${styles.rank}`}>
           {
             setRankingPageData?.map((item: newsRankContentsDataType) => {

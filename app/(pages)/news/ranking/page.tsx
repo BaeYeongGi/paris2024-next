@@ -11,7 +11,7 @@ const Ranking = () => {
     <>
     <PageTabsWrap type="rankPage" />
     <Section name={["component_wrap"]} type="normal">
-      <NewsList type="ranking"/>
+      <NewsList type="rankPage"/>
     </Section>
     </>
   );
