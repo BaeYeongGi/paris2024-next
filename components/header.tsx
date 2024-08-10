@@ -45,7 +45,7 @@ const Header = ({total, medal}: headerProps) => {
     try {
       if(isAndroidWebView()){
         await navigator.clipboard.writeText(path);
-        alert('URL이 클립보드에 복사되었습니다!(Android WebView 에서만 제공)')
+        alert('URL이 클립보드에 복사되었습니다 (Android WebView 에서만 제공)')
       } else if(navigator.share){
         await navigator.share({
           title: document.title,

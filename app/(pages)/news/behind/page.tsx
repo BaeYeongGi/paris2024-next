@@ -7,9 +7,7 @@ export const metadata = {
 
 const Behind = () => {
   return (
-    <Section name={["component_wrap"]} type="normal">
-      <NewsList type="behindPage"/>
-    </Section>
+    <NewsList type="behindPage"/>
   );
 };
 
