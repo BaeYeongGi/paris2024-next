@@ -252,7 +252,7 @@ export default async function NewsList({ type }: newsListPropsType){
                         type="single"  
                         img={item.thumbnail}
                         title=""
-                        width={100}
+                        width={0}
                         height={97}
                         media={item.photo}
                         fill={true}
