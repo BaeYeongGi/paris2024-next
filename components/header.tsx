@@ -12,6 +12,7 @@ import ImgBackgroundHeader2 from '@/public/images/img_background_header_type2.pn
 import ImgBackgroundHeader3 from '@/public/images/img_background_header_type3.png';
 import ImgBackgroundHeader4 from '@/public/images/img_background_header_type4.png';
 import ImgBackgroundHeader5 from '@/public/images/img_background_header_type5.png';
+import { isAndroidWebView } from '@/utils/navigator';
 
 interface medalType {
   name: string,
@@ -42,11 +43,17 @@ const Header = ({total, medal}: headerProps) => {
 
   const shareHandler = async () => {
     try {
-      await navigator.share({
-        title: document.title,
-        text: '네이트 2024 파리올림픽',
-        url: path
-      })
+      if(isAndroidWebView()){
+        await navigator.clipboard.writeText(path);
+        alert('URL이 클립보드에 복사되었습니다!(Android WebView 에서만 제공)')
+      } else if(navigator.share){
+        await navigator.share({
+          title: document.title,
+          url: path
+        });
+      } else {
+        alert('현재 공유기능을 사용할 수 없습니다.')
+      }
     } catch (err) {
       console.log('share navigator error',err)
     }
