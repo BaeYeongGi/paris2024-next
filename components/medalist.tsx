@@ -61,6 +61,7 @@ export default async function Medalist(){
                     title={item.game}
                     width={100}
                     height={60}
+                    fill={false}
                   />
                   <div className={styles.text}>
                     <dt>{item.game}</dt>

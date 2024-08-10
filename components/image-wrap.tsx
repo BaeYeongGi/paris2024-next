@@ -10,11 +10,12 @@ interface imageDataType {
   contents?: string,
   width: number,
   height: number,
-  media?: boolean
+  media?: boolean,
+  fill: boolean
 } 
 
 
-const ImageWrap = ({ type, img, title, contents, width, height, media }: imageDataType) => {
+const ImageWrap = ({ type, img, title, contents, width, height, media, fill }: imageDataType) => {
   return (
     <>
     {
@@ -25,7 +26,7 @@ const ImageWrap = ({ type, img, title, contents, width, height, media }: imageDa
             height
           }}
         >
-          <Image className={styles.top_img} src={img} alt={title} width={width} height={height} />
+          <Image className={styles.top_img} src={img} alt={title} width={`${width}`} height={height}/>
           <div className={styles.text}>
             <span className={styles.sub_title}>{title}</span>
             <p className={styles.contents}>{contents}</p>
@@ -50,11 +51,13 @@ const ImageWrap = ({ type, img, title, contents, width, height, media }: imageDa
     {
       type === "single" && (
         <div className={`${styles.img_wrap} ${styles.single}`} style={{
-          width,
+          width: fill ? '100%' : width,
           height,
           flex: 'none'
         }}>
-          <Image className={styles.img} src={img} alt={title} width={width} height={height} />
+          {
+            fill ? <Image className={styles.img} src={img} alt={title} layout="fill" /> : <Image className={styles.img} src={img} alt={title} width={width} height={height} />
+          }
           {
             media && (
               <Image src={IconVideo} alt="영상" width="26" height="26" className={styles.icon}/>

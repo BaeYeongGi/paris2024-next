@@ -20,6 +20,7 @@ interface newsContentsDataType {
   player: boolean,
   title: string,
   media: string,
+  photo: boolean,
   contents: string
 }
 
@@ -34,19 +35,19 @@ interface newsRankContentsDataType {
 }
 
 async function getNewsData(){
-  const response = await fetch(`${API_URL}/news.json?c`);
+  const response = await fetch(`${API_URL}/news.json?f`);
   return response.json();
 }
 
 export default async function NewsList({ type }: newsListPropsType){
   
   const { data } = await getNewsData()
-  const setBehindPageData = data.behind.list.flat();
+  const setBehindPageData = data.behind;
   const setBehindData:Array<newsContentsDataType> = []
   const setNewsPageData = data.news_page.page;
   const setRankingPageData = data.ranking.contents;
 
-  setBehindPageData.forEach((item:newsGroupDataType)  => {
+  setBehindPageData.list.flat().forEach((item:newsGroupDataType)  => {
     setBehindData.push(item.contents[0])
   })
 
@@ -66,6 +67,8 @@ export default async function NewsList({ type }: newsListPropsType){
                       title={item.title}
                       width={110}
                       height={66}
+                      fill={false}
+
                     />
                     <p className={styles.text}>
                       {item.title}
@@ -113,6 +116,8 @@ export default async function NewsList({ type }: newsListPropsType){
                                     width={110}
                                     height={66}
                                     media={item.player}
+                                    fill={false}
+
                                   />
                                 )
                               }
@@ -121,14 +126,18 @@ export default async function NewsList({ type }: newsListPropsType){
                                   {item.title}
                                 </dt>
                                 {
-                                  item.contents !== '' && item.media === '' ?
-                                  <dd className={styles.text}>
-                                    {item.contents}
-                                  </dd>
-                                  : 
-                                  <dd className={styles.info}>
+                                  item.contents !== '' && (
+                                    <dd className={styles.text}>
+                                      {item.contents}
+                                    </dd>
+                                  )
+                                }
+                                {
+                                  item.media !== '' && (
+                                    <dd className={styles.info}>
                                     <span className={styles.media}>{item.media}</span>
                                   </dd>
+                                  )
                                 }
                               </div>
                             </Link>
@@ -171,9 +180,9 @@ export default async function NewsList({ type }: newsListPropsType){
       type === "behindPage" && (
         <>
           {
-            setBehindPageData.map((news: newsGroupDataType) => {
+            setBehindPageData.list.flat().map((news: newsGroupDataType, idx:number) => {
               return (              
-                <Section name={["component_wrap"]} type="normal">
+                <Section name={["component_wrap"]} type="normal" key={idx}>
                   <>
                   {
                     news.title !== "" && (
@@ -199,6 +208,8 @@ export default async function NewsList({ type }: newsListPropsType){
                                     width={110}
                                     height={66}
                                     media={item.player}
+                                    fill={false}
+
                                   />
                                 )
                               }
@@ -207,14 +218,11 @@ export default async function NewsList({ type }: newsListPropsType){
                                   {item.title}
                                 </dt>
                                 {
-                                  item.contents !== '' && item.media === '' ?
-                                  <dd className={styles.text}>
-                                    {item.contents}
-                                  </dd>
-                                  : 
-                                  <dd className={styles.info}>
-                                    <span className={styles.media}>{item.media}</span>
-                                  </dd>
+                                  item.media !== '' && (
+                                    <dd className={styles.info}>
+                                      <span className={styles.media}>{item.media}</span>
+                                    </dd>
+                                  )
                                 }
                               </div>
                             </Link>
@@ -224,11 +232,40 @@ export default async function NewsList({ type }: newsListPropsType){
                     }
                   </ul>                  
                   </>
-
                 </Section>
               )
             })
           }
+          <Section name={["component_wrap"]} type="normal">
+            <Title
+              text={setBehindPageData.photo.title}
+              type="normal"
+              more={false}
+            />
+            <ul className={`${styles.news_wrap} ${styles.photo}`}>
+            {
+              setBehindPageData.photo.contents.map((item: newsContentsDataType) => {
+                return (
+                  <li key={item.id}>
+                    <Link href="#">
+                      <ImageWrap
+                        type="single"  
+                        img={item.thumbnail}
+                        title=""
+                        width={100}
+                        height={97}
+                        media={item.photo}
+                        fill={true}
+                      />
+                      <h2 className={styles.title}>{item.title}</h2>
+                    </Link>
+  
+                  </li>
+                )
+              })
+            }
+            </ul>
+          </Section>
         </>
       )
     }

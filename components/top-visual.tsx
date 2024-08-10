@@ -33,6 +33,8 @@ export default async function TopVisual(){
           contents={data.main_visual.top.contents}
           width={335}
           height={201}
+          fill={false}
+
         />
       </Link>
 

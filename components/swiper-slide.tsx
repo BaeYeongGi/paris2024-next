@@ -176,6 +176,7 @@ export default function Slide({
                                     width={110}
                                     height={66}
                                     media={item.player}
+                                    fill={false}
                                   />
                                 )
                               }
@@ -231,6 +232,7 @@ export default function Slide({
                         title={item.title}
                         width={265}
                         height={159}
+                        fill={false}
                       />
                       </Link>
                   </SwiperSlide>
