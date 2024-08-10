@@ -53,7 +53,7 @@ export default async function Medalist(){
             return (
               <li key={item.id} className={styles[item.medal]}>
                 <Image src={getMedal(item.medal)} alt={item.medal} width="18" height="25" className={styles.medal} />
-                <Link href="#">
+                <Link href="#" scroll={false}>
                   <span className={styles.time}>{item.time}</span>
                   <ImageWrap
                     type="single"

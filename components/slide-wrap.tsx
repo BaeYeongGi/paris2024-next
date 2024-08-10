@@ -13,7 +13,7 @@ async function getData(API_URL: string){
 export default async function SlideWrap({ type }:slideWrapType){
   const [malData, newsData, photoData] = await Promise.all([
     getData(`${API_URL}/malmalmal.json`),
-    getData(`${API_URL}/news.json?7`),
+    getData(`${API_URL}/news.json?8`),
     getData(`${API_URL}/photo.json?2`),
     
   ]);
@@ -23,7 +23,7 @@ export default async function SlideWrap({ type }:slideWrapType){
     malData: type === "malmalmal" ? malData.data : undefined,
     newsSlideData: type === "newsSlide" ? newsData.data.slide_news : undefined,
     photoData: type === "photo" ? photoData.data : undefined,
-    rankingData: type === "ranking" ? newsData.data.ranking : undefined,
+    rankingData: type === "ranking" ? newsData.data.ranking.contents : undefined,
     newsDatePageData: type === "datePage" ? newsData.data.news_page : undefined
   }
 

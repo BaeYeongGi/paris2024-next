@@ -60,3 +60,21 @@
   word-wrap: break-word;
   -webkit-line-clamp: 2;
 }
+.rank > li > a .num_wrap {
+  position:relative;
+  margin-right: 10px;
+}
+.rank > li > a .num_wrap .num {
+  font-family: "Arial", Malgun Gothic, Dotum, Helvetica, sans-serif;
+  text-align: center;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  background-position: center;
+  font-weight: 700;
+  font-size: 12px;
+  color: #fff;
+  position:absolute;
+  top:0;
+  left:0;
+}
