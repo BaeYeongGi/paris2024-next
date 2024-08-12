@@ -30,24 +30,28 @@ const Navigation = () => {
     }
   },[height])
 
+  const menus = [
+    { menu: "/", href: "/", name: "홈" },
+    { menu: "/news", href: "/news", name: "뉴스" },
+    { menu: "/photo", href: "/photo", name: "포토" },
+    { menu: "/schedule", href: "/schedule/date", name: "일정/결과"},
+    { menu: "/medal", href: "/medal/rank", name: "메달" },
+  ];
+
   return (
     <nav className={isActive ? `${styles.nav} ${styles.fixed}` : styles.nav} ref={navigationRef}>
       <ul className={styles.nav_menu}>
-        <li>
-          <Link href="/" className={path === "/" ? styles.active : ''}>홈</Link>
-        </li> 
-        <li>
-          <Link href="/news" className={path.includes("/news") ? styles.active : ''}>뉴스</Link>
-        </li> 
-        <li>
-          <Link href="/photo" className={path === "/photo" ? styles.active : ''}>포토</Link>
-        </li> 
-        <li>
-          <Link href="/schedule/date" className={path.includes("/schedule") ? styles.active : ''}>일정/결과</Link>
-        </li> 
-        <li>
-          <Link href="/medal/rank" className={path.includes("/medal") ? styles.active : ''}>메달</Link>
-        </li> 
+        {
+          menus.map((item) => {
+            return (
+              <li key={item.name}>
+                <Link href={item.href} className={
+                  path === item.menu || (path.includes(item.menu) && item.menu !== '/') ? styles.active : ''}>{item.name
+                  }</Link>
+              </li>
+            )
+          })
+        }
       </ul>
       <Link href="/poll" aria-label="poll" className={
         path === "/poll" || path === "/pollresult" ? `${styles.poll} ${styles.active}` : styles.poll 
