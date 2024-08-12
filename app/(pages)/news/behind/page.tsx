@@ -5,6 +5,7 @@ import Title from '@/components/title';
 import Link from 'next/link';
 import ImageWrap from '@/components/image-wrap';
 import { newsGroupDataType, newsContentsDataType } from '@/types/news';
+import TextWrap from '@/components/text-wrap';
 
 export const metadata = {
   title: "비하인드 뉴스"
@@ -56,18 +57,11 @@ export default async function Behind(){
                               />
                             )
                           }
-                          <div className={styles.text_wrap}>
-                            <dt className={styles.title}>
-                              {item.title}
-                            </dt>
-                            {
-                              item.media !== '' && (
-                                <dd className={styles.info}>
-                                  <span className={styles.media}>{item.media}</span>
-                                </dd>
-                              )
-                            }
-                          </div>
+                          <TextWrap
+                            title={item.title}
+                            contents=""
+                            media={item.media}
+                          />
                         </Link>
                       </li>
                     )

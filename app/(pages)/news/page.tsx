@@ -6,6 +6,7 @@ import styles from '@/styles/news-list.style.module.css';
 import ImageWrap from '@/components/image-wrap';
 import Link from 'next/link';
 import { newsGroupDataType, newsContentsDataType } from '@/types/news';
+import TextWrap from '@/components/text-wrap';
 
 export const metadata = {
   title: "주요뉴스"
@@ -61,25 +62,11 @@ export default async function News(){
                               />
                             )
                           }
-                          <div className={styles.text_wrap}>
-                            <dt className={styles.title}>
-                              {item.title}
-                            </dt>
-                            {
-                              item.contents !== '' && (
-                                <dd className={styles.text}>
-                                  {item.contents}
-                                </dd>
-                              )
-                            }
-                            {
-                              item.media !== '' && (
-                                <dd className={styles.info}>
-                                <span className={styles.media}>{item.media}</span>
-                              </dd>
-                              )
-                            }
-                          </div>
+                          <TextWrap
+                            title={item.title}
+                            contents={item.contents}
+                            media={item.media}
+                          />
                         </Link>
                       </li>
                     )

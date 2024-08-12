@@ -16,6 +16,7 @@ import ImageWrap from '@/components/image-wrap';
 import IconRankBulletGold from '@/public/images/icon_rank_gold.png';
 import IconRankBulletSilver from '@/public/images/icon_rank_silver.png';
 import { useState, useEffect } from 'react';
+import TextWrap from './text-wrap';
 
 interface malmalmalType {
   id: number,
@@ -180,21 +181,11 @@ export default function Slide({
                                   />
                                 )
                               }
-                              <div className={styles.text_wrap}>
-                                <dt className={styles.title}>
-                                  {item.title}
-                                </dt>
-                                {
-                                  item.contents !== '' && item.media === '' ?
-                                  <dd className={styles.text}>
-                                    {item.contents}
-                                  </dd>
-                                  : 
-                                  <dd className={styles.info}>
-                                    <span className={styles.media}>{item.media}</span>
-                                  </dd>
-                                }
-                              </div>
+                              <TextWrap
+                                title={item.title}
+                                contents={item.contents}
+                                media={item.media}
+                              />
                             </Link>
                           </li>
                         )
