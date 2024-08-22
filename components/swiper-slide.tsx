@@ -185,6 +185,7 @@ export default function Slide({
                                 title={item.title}
                                 contents={item.contents}
                                 media={item.media}
+                                date=''
                               />
                             </Link>
                           </li>

@@ -10,7 +10,8 @@ export interface newsContentsDataType {
   title: string,
   media: string,
   photo: boolean,
-  contents: string
+  contents: string,
+  date: string
 }
 
 export interface newsRankContentsDataType {

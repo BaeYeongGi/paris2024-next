@@ -3,10 +3,11 @@ import styles from '@/styles/text-wrap.module.css';
 interface textWrapPropsDataType {
   title: string,
   contents: string,
-  media: string
+  media: string,
+  date: string,
 }
 
-export default function TextWrap({ title, contents, media }: textWrapPropsDataType){
+export default function TextWrap({ title, contents, media, date }: textWrapPropsDataType){
   return (
     <div className={styles.text_wrap}>
       <dt className={styles.title}>
@@ -18,14 +19,15 @@ export default function TextWrap({ title, contents, media }: textWrapPropsDataTy
             {contents}
           </dd>
         )
-      }
+      }          
       {
-        media !== '' && (
+        (media !== '' || date !== '') && (
           <dd className={styles.info}>
-          <span className={styles.media}>{media}</span>
-        </dd>
+            {media !== '' && <span className={styles.media}>{media}</span>}   
+            {date !== '' && <span className={styles.time}>{date}</span>}
+          </dd>
         )
-      }      
+      }
     </div>
   );
 };

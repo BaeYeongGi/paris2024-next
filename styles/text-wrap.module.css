@@ -12,13 +12,30 @@
   -webkit-line-clamp: 2;
   margin: 0 0 4px 0;
 }
-.text_wrap .info .media {
+.text_wrap .info {
+  display:flex;
+  justify-content: flex-start;
+}
+.text_wrap .info span {
   display: block;
-    font-size: 13px;
-    font-weight: 300;
-    letter-spacing: -0.5px;
-    color: #838383;
-    position: relative;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  color: #838383;
+  position: relative;
+}
+.text_wrap .info span:not(:last-child){
+  margin-right:9px;
+}
+.text_wrap .info span:not(:last-child)::after{
+  content: "";
+  display: block;
+  width: 1px;
+  height: 10px;
+  background-color: #e2e2e2;
+  position: absolute;
+  top: 2px;
+  right: -5px;
 }
 .text_wrap .text {
   font-size: 14px;

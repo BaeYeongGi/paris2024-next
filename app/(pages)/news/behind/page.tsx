@@ -61,6 +61,7 @@ export default async function Behind(){
                             title={item.title}
                             contents=""
                             media={item.media}
+                            date=""
                           />
                         </Link>
                       </li>

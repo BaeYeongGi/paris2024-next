@@ -66,6 +66,7 @@ export default async function News(){
                             title={item.title}
                             contents={item.contents}
                             media={item.media}
+                            date=''
                           />
                         </Link>
                       </li>
