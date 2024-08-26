@@ -12,8 +12,25 @@
 .poll_contents .img {
   margin-right:24px;
 }
+.poll_contents .button_info {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 22px;
+  right: 19px;
+  color: #999;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+.poll_contents .button_info svg {
+  margin-left:2px;
+}
 .text_wrap {
   min-height:112px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .text_wrap .state {
   margin-bottom:2px;

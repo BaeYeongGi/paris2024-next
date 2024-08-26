@@ -38,8 +38,16 @@ const Navigation = () => {
     { menu: "/medal", href: "/medal/rank", name: "메달" },
   ];
 
+  function setNavigationClassName(){
+    if(isActive){
+      return path.includes('poll') ? `${styles.nav} ${styles.fixed} ${styles.poll}` : `${styles.nav} ${styles.fixed}`
+    } else {
+      return `${styles.nav}`
+    }
+  }
+
   return (
-    <nav className={isActive ? `${styles.nav} ${styles.fixed}` : styles.nav} ref={navigationRef}>
+    <nav className={setNavigationClassName()} ref={navigationRef}>
       <ul className={styles.nav_menu}>
         {
           menus.map((item) => {
@@ -54,7 +62,7 @@ const Navigation = () => {
         }
       </ul>
       <Link href="/poll" aria-label="poll" className={
-        path === "/poll" || path === "/pollresult" ? `${styles.poll} ${styles.active}` : styles.poll 
+        path.includes('poll') ? `${styles.poll} ${styles.active}` : styles.poll 
       }>
         <IconPoll />
       </Link>
