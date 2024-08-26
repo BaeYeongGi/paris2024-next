@@ -60,7 +60,7 @@ const Header = ({total, medal}: headerProps) => {
   }
 
   return (
-    <header className={styles.header}>
+    <header className={path.includes('poll') ? `${styles.header} ${styles.poll}` : styles.header}>
       <Image className={styles.header_bg} src={getHeaderBackground(path.split('/')[1])} alt="" width="161" height="112" />
       <div className={styles.header_top_area}>
         <ul className={styles.header_nav}>
