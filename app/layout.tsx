@@ -1,7 +1,7 @@
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Viewport } from "next";
-import "@/styles/global.css";
+import "@/config/global.css";
 import { API_URL } from '@/api';
 import ScrollButtons from "@/components/scroll-buttons";
 

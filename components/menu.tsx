@@ -1,6 +1,5 @@
 "use client";
 
-import styles from '@/styles/menu.module.css';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -17,21 +16,22 @@ interface menuPropsDataType {
 const Menu = ({ items }: menuPropsDataType) => {
   const path = usePathname();
   return (
-    <ul className={`${styles.menu}`}>
+    <ul className="flex items-center w-full border-b border-[#e6e7e9] border-solid box-border">
       {items.map((item) => {
+        const isActive = path === item.link;
         return (
-          <li key={item.id} style={{
+          <li className="text-center" key={item.id} style={{
             width: `${100 / items.length}%`
           }}>
-            <Link href={item.link} className={path === item.link ? styles.active : ''}>
+            <Link href={item.link} className={`flex justify-center items-center h-10.5 text-[16px] tracking-[-1px]  relative ${isActive ? "font-bold text-[#278d8f]" : "font-light text-[#000]"}`}>
             {
-              path === item.link ? <h1>{item.name}</h1> : <>{item.name}</>
+              path === item.link ? <h1 className={`flex items-center relative h-full ${isActive ? "after:content-[''] after:w-full after:h-0.5 after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:bg-[#278d8f]" : ""}`}>{item.name}</h1> : <>{item.name}</>
             }
             </Link>
           </li>
         )
       })}
-    </ul>
+    </ul>    
   );
 };
 
