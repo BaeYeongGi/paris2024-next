@@ -1,6 +1,6 @@
 interface IconPollProps {
-	isPoll: boolean;
-	isPollMenu: string;
+	isPoll?: boolean;
+	isPollMenu?: string;
 }
 const IconPoll = ({ isPoll, isPollMenu}: IconPollProps) => {
 		return (
