@@ -25,7 +25,7 @@ export default async function Ranking(){
   return (
     <>
     <PageTabsWrap type="rankPage" />
-    <Section name={["component_wrap"]} type="normal">
+    <Section name='normal' type="normal">
       <ul className={`${styles.news_wrap} ${styles.rank}`}>
         {
           setRankingPageData?.map((item: newsRankContentsDataType) => {

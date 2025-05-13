@@ -10,18 +10,24 @@ import SlideWrap from '@/components/slide-wrap';
 import Title from '@/components/title';
 
 const Home = () => {
+
+  const component = {
+    wrap: 'p-5 box-border bg-[#ffffff]',
+    skyWrap: 'p-5 box-border bg-[#f3f6fa]',
+  }
+
   return (
     <>
       <TopVisual/>
       <Navigation/>
       <Section
-        name={["component_wrap", "bg_sky"]}
+        name='sky'
         type="border_container"
       >
         <GameSchedule />
       </Section>
       <Section
-        name={["component_wrap"]}
+        name='normal'
         type="nomral"
       >
         <Title
@@ -34,7 +40,7 @@ const Home = () => {
           />
       </Section>
       <Section
-        name={["component_wrap"]}
+        name='normal'
         type="normal"  
       >
         <Title
@@ -44,12 +50,12 @@ const Home = () => {
         />
         <Table/>
       </Section>
-      <Section name={["component_wrap"]} type="normal">
+      <Section name='normal' type="normal">
         <SlideWrap
           type="newsSlide"
         />
       </Section>
-      <Section name={["component_wrap"]} type="normal">
+      <Section name='noraml' type="normal">
         <Title
           text="파리 포토"
           type="normal"
@@ -59,10 +65,10 @@ const Home = () => {
           type="photo"
         />
       </Section>
-      <Section name={["component_wrap"]} type="border_container">
+      <Section name='noraml' type="border_container">
         <Medalist />
       </Section>
-      <Section name={["component_wrap"]} type="normal">
+      <Section name='noraml' type="normal">
         <Title
           text="비하인드 파리"
           type="normal"
@@ -70,7 +76,7 @@ const Home = () => {
         />
         <NewsList type="behind"/>
       </Section>
-      <Section name={["component_wrap"]} type="normal">
+      <Section name='noraml' type="normal">
         <Title
           text="파리 랭킹뉴스"
           type="normal"
@@ -80,7 +86,7 @@ const Home = () => {
           type="ranking"
         />
       </Section>
-      <Section name={["component_wrap"]} type="normal">
+      <Section name='noraml' type="normal">
         <Title
           text="poll"
           type="normal"

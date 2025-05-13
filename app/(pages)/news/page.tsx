@@ -30,7 +30,7 @@ export default async function News(){
           return (
             <Section
               key={idx}
-              name={["component_wrap"]}
+              name='normal'
               type="normal"              
             >
               {

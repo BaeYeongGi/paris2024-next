@@ -20,7 +20,7 @@ export default async function Recent(){
 
   return (
     <>
-    <Section name={["component_wrap"]} type="normal">
+    <Section name='default' type="normal">
       <ClientRecent data={setRecentPageData}/>
     </Section> 
     <ButtonMore

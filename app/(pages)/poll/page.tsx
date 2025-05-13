@@ -27,7 +27,7 @@ export default async function PollPage(){
   const setPollSurveyData = data.survey;
 
   return (
-  <Section name={["component_wrap"]} type="normal">  
+  <Section name='normal' type="normal">  
     <div className={styles.poll_wrap}>
       <div className={styles.poll_contents}>
         <Image className={styles.img} src={setPollSurveyData.icon} alt="" width="83" height="83" />

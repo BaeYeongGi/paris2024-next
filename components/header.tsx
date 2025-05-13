@@ -78,7 +78,7 @@ const Header = ({total, medal}: headerProps) => {
         </a>
       </div>
       <div className='flex justify-between items-center relative z-10'>
-        <ul className='flex items-end'>
+        <ul className='flex items-center'>
           <li>
             <Link href="/" className="mr-0.25">
               { path === "/" ?
@@ -95,11 +95,11 @@ const Header = ({total, medal}: headerProps) => {
         </ul>
         <Link href="/medalist" className='flex items-center relative'>
             <p className='text-[14px] font-semibold tracking-[-0.8px] mr-2.5 text-[#ffffff] font-sans'><span>종합</span> {total}위</p>
-            <ul className='flex'>
+            <ul className='flex space-x-1'>
             {
               medal.map((item: medalType) => {
                 return (
-                  <li key={item.name} className='text-center relative w-8.75 h8.75 flex items-center justify-center space-x-1'>
+                  <li key={item.name} className='text-center relative w-8.75 h8.75 flex items-center justify-center'>
                     <Image src={item.img} alt={`${item.name} 획득 수`} width="35" height="35" className='absolute' />
                     <span className='block text-[#ffffff] font-bold z-1 indent-[-2px] font-sans text-shadow-sm'>{item.count}</span>
                   </li>

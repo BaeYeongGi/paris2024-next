@@ -26,7 +26,7 @@ export default async function Behind(){
       {
         setBehindPageData.list.flat().map((news: newsGroupDataType, idx:number) => {
           return (              
-            <Section name={["component_wrap"]} type="normal" key={idx}>
+            <Section name='normal' type="normal" key={idx}>
               <>
               {
                 news.title !== "" && (
@@ -74,7 +74,7 @@ export default async function Behind(){
           )
         })
       }
-      <Section name={["component_wrap"]} type="normal">
+      <Section name='normal' type="normal">
         <Title
           text={setBehindPageData.photo.title}
           type="normal"
