@@ -57,7 +57,9 @@ export default async function Table(){
               return (
                 <tr key={item.id} className={item.nation === "대한민국" ? styles.active : ''}>
                   <td>{item.rank}</td>
-                  <td><Image src={item.flag} alt={item.nation} width="22" height="16"/>{item.nation}</td>
+                  <td>
+                    <Image src={item.flag} alt={item.nation} width="22" height="16"/>{item.nation}
+                  </td>
                   <td>{item.gold}</td>
                   <td>{item.silver}</td>
                   <td>{item.bronze}</td>

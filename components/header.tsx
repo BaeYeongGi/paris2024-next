@@ -59,7 +59,7 @@ const Header = ({total, medal}: headerProps) => {
   }
 
   return (
-    <header className={`w-full h-28 px-5 pt-4.5 box-border relative ${path.includes('poll') ?
+    <header className={`w-full h-28 px-5 pt-[18px] box-border relative ${path.includes('poll') ?
     'bg-linear-90 bg-gradient-to-r from-[#304a97] from-10% to-[#ecbbc6] to-100%' : 'bg-linear-90 bg-gradient-to-r from-[#278d8f] from-10% to-[#efbcc7] to-100%'}`}>
       <Image className='absolute top-0 right-0' src={getHeaderBackground(path.split('/')[1])} alt="" width="161" height="112" />
       <div className='w-full flex items-center justify-between mb-2 relative z-10'>
@@ -77,10 +77,10 @@ const Header = ({total, medal}: headerProps) => {
           <Image src={iconHeaderSearch} alt="검색 페이지로 이동" width="22" height="22"/>
         </a>
       </div>
-      <div className='flex justify-between items-center relative z-10'>
-        <ul className='flex items-center'>
+      <div className='flex justify-between items-end relative z-10 h-[52px]'>
+        <ul className='flex items-end'>
           <li>
-            <Link href="/" className="mr-0.25">
+            <Link href="/" className="mr-0.25 flex items-end">
               { path === "/" ?
               <h1><Image src={iconHeaderTitle} alt='봉쥬르 paris' width="102" height="52" /></h1>
               :
@@ -93,7 +93,7 @@ const Header = ({total, medal}: headerProps) => {
             </button>
           </li>
         </ul>
-        <Link href="/medalist" className='flex items-center relative'>
+        <Link href="/medalist" className='flex items-center relative h-[35px]'>
             <p className='text-[14px] font-semibold tracking-[-0.8px] mr-2.5 text-[#ffffff] font-sans'><span>종합</span> {total}위</p>
             <ul className='flex space-x-1'>
             {
