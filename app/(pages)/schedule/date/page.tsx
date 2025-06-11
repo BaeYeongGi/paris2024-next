@@ -5,8 +5,8 @@ export const metadata = {
 
 const Dateschedule = () => {
   return (
-    <div>
-      일정결과 뉴스페이지입니둥
+    <div className="flex h-full w-full items-center justify-center text-2xl font-bold py-50">
+        페이지 준비중 입니다.
     </div>
   );
 };

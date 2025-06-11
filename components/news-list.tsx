@@ -1,11 +1,12 @@
 import { API_URL } from '@/api';
-import styles from '@/styles/news-list.style.module.css';
+// import styles from '@/styles/news-list.style.module.css';
 import Link from 'next/link';
 import ImageWrap from '@/components/image-wrap';
 import Section from '@/components/section';
 import Title from '@/components/title';
 import Image from 'next/image';
-
+import { newsWrap } from '@/config/const';
+ 
 interface newsGroupDataType {
   title: string,
   contents: [newsContentsDataType]
@@ -51,12 +52,12 @@ export default async function NewsList({ type }: newsListPropsType){
     <>
     {
       type === "behind" && (
-        <ul className={`${styles.news_wrap}`}>
+        <ul>
           {
             setBehindData.map((item: newsContentsDataType, idx) => {
               return (
-                <li key={idx}>
-                  <Link href="#">
+                <li key={idx} className={newsWrap.list}>
+                  <Link href="#" className={newsWrap.link}>
                     <ImageWrap
                       type="single"  
                       img={item.thumbnail}
@@ -66,7 +67,7 @@ export default async function NewsList({ type }: newsListPropsType){
                       fill={false}
 
                     />
-                    <p className={styles.text}>
+                    <p className={newsWrap.text}>
                       {item.title}
                     </p>
                   </Link>

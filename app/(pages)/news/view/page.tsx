@@ -2,9 +2,8 @@ import React from 'react';
 
 const View = () => {
   return (
-    <div>
-      뉴스 뷰 페이지입니당
-      
+    <div className="flex h-full w-full items-center justify-center text-2xl font-bold py-50">
+        페이지 준비중 입니다.
     </div>
   );
 };
